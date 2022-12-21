@@ -28,7 +28,6 @@ class _HomeState extends State<Home> {
   String stat = "night";
   void grow() {
     setState(() {
-      print("dkhalt");
       if (stat == "day") {
         stat = "night";
         _colorAppbar = Color.fromARGB(255, 104, 104, 104);
