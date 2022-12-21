@@ -22,22 +22,22 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  var _colorAppbar = Color.fromARGB(255, 104, 104, 104);
-  var _colorbody = Color.fromARGB(255, 53, 53, 53);
-  var _colorbodytext = Color.fromARGB(255, 204, 204, 204);
+  var _colorAppbar = const Color.fromARGB(255, 104, 104, 104);
+  var _colorbody = const Color.fromARGB(255, 53, 53, 53);
+  var _colorbodytext = const Color.fromARGB(255, 204, 204, 204);
   String stat = "night";
   void grow() {
     setState(() {
       if (stat == "day") {
         stat = "night";
-        _colorAppbar = Color.fromARGB(255, 104, 104, 104);
-        _colorbody = Color.fromARGB(255, 53, 53, 53);
-        _colorbodytext = Color.fromARGB(255, 204, 204, 204);
+        _colorAppbar = const Color.fromARGB(255, 104, 104, 104);
+        _colorbody = const Color.fromARGB(255, 53, 53, 53);
+        _colorbodytext = const Color.fromARGB(255, 204, 204, 204);
       } else if (stat == "night") {
         stat = "day";
-        _colorAppbar = Color.fromARGB(255, 255, 138, 138);
-        _colorbody = Color.fromARGB(255, 255, 255, 255);
-        _colorbodytext = Color.fromARGB(255, 31, 31, 31);
+        _colorAppbar = const Color.fromARGB(255, 255, 138, 138);
+        _colorbody = const Color.fromARGB(255, 255, 255, 255);
+        _colorbodytext = const Color.fromARGB(255, 31, 31, 31);
       }
     });
   }
@@ -79,7 +79,7 @@ class Body extends StatelessWidget {
       children: [
         Center(
           child: Container(
-            margin: const EdgeInsets.all(100),
+            margin: const EdgeInsets.fromLTRB(0, 40, 0, 0),
             child: const CircleAvatar(
               backgroundImage: AssetImage(
                 "assets/1.jpg",
@@ -87,6 +87,9 @@ class Body extends StatelessWidget {
               radius: 50,
             ),
           ),
+        ),
+        const Divider(
+          height: 60,
         ),
         Container(
           margin: const EdgeInsets.fromLTRB(25, 0, 0, 0),
@@ -129,7 +132,7 @@ class Body extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Row(
