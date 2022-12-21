@@ -26,7 +26,7 @@ class _HomeState extends State<Home> {
   var _colorbody = const Color.fromARGB(255, 53, 53, 53);
   var _colorbodytext = const Color.fromARGB(255, 204, 204, 204);
   String stat = "night";
-  void grow() {
+  void themee() {
     setState(() {
       if (stat == "day") {
         stat = "night";
@@ -56,7 +56,7 @@ class _HomeState extends State<Home> {
       backgroundColor: _colorbody,
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          grow();
+          themee();
         },
         child: const Icon(Icons.nightlight),
       ),
@@ -64,12 +64,23 @@ class _HomeState extends State<Home> {
   }
 }
 
-class Body extends StatelessWidget {
+class Body extends StatefulWidget {
   late Color _colorbodytext;
-
-  // ignore: no_leading_underscores_for_local_identifiers
   Body(Color _colorbodytext, {super.key}) {
     this._colorbodytext = _colorbodytext;
+  }
+
+  @override
+  State<Body> createState() => _BodyState();
+}
+
+class _BodyState extends State<Body> {
+  // ignore: non_constant_identifier_names
+  var _ninja_level = 0;
+  void ninjalevelup() {
+    setState(() {
+      _ninja_level += 1;
+    });
   }
 
   @override
@@ -80,11 +91,16 @@ class Body extends StatelessWidget {
         Center(
           child: Container(
             margin: const EdgeInsets.fromLTRB(0, 40, 0, 0),
-            child: const CircleAvatar(
-              backgroundImage: AssetImage(
-                "assets/1.jpg",
+            child: TextButton(
+              onPressed: () {
+                ninjalevelup();
+              },
+              child: const CircleAvatar(
+                backgroundImage: AssetImage(
+                  "assets/1.jpg",
+                ),
+                radius: 50,
               ),
-              radius: 50,
             ),
           ),
         ),
@@ -99,7 +115,7 @@ class Body extends StatelessWidget {
             children: <Widget>[
               Text(
                 'NAME',
-                style: TextStyle(color: _colorbodytext),
+                style: TextStyle(color: widget._colorbodytext),
               ),
               const SizedBox(
                 height: 10,
@@ -118,15 +134,15 @@ class Body extends StatelessWidget {
               Text(
                 'CURRENT NINJA LEVEL',
                 style: TextStyle(
-                  color: _colorbodytext,
+                  color: widget._colorbodytext,
                 ),
               ),
               const SizedBox(
                 height: 10,
               ),
-              const Text(
-                "8",
-                style: TextStyle(
+              Text(
+                "$_ninja_level",
+                style: const TextStyle(
                   color: Colors.amber,
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
@@ -140,7 +156,7 @@ class Body extends StatelessWidget {
                 children: [
                   Icon(
                     Icons.mail,
-                    color: _colorbodytext,
+                    color: widget._colorbodytext,
                     size: 15,
                   ),
                   const SizedBox(
@@ -148,7 +164,7 @@ class Body extends StatelessWidget {
                   ),
                   Text(
                     "chun-li@ninjaTeam.com",
-                    style: TextStyle(color: _colorbodytext),
+                    style: TextStyle(color: widget._colorbodytext),
                   )
                 ],
               )
