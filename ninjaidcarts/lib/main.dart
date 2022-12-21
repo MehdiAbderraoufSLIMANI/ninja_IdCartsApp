@@ -6,7 +6,6 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
@@ -27,6 +26,10 @@ class Home extends StatelessWidget {
       ),
       body: const Body(),
       backgroundColor: const Color.fromARGB(255, 53, 53, 53),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: Icon(Icons.nightlight),
+      ),
     );
   }
 }
@@ -75,8 +78,10 @@ class Body extends StatelessWidget {
                 height: 20,
               ),
               const Text(
-                'Current ninja level',
-                style: TextStyle(color: Color.fromARGB(255, 204, 204, 204)),
+                'CURRENT NINJA LEVEL',
+                style: TextStyle(
+                  color: Color.fromARGB(255, 204, 204, 204),
+                ),
               ),
               const SizedBox(
                 height: 10,
