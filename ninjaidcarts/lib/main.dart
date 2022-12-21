@@ -14,28 +14,64 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
   const Home({super.key});
+
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  var _colorAppbar = Color.fromARGB(255, 104, 104, 104);
+  var _colorbody = Color.fromARGB(255, 53, 53, 53);
+  var _colorbodytext = Color.fromARGB(255, 204, 204, 204);
+  String stat = "night";
+  void grow() {
+    setState(() {
+      print("dkhalt");
+      if (stat == "day") {
+        stat = "night";
+        _colorAppbar = Color.fromARGB(255, 104, 104, 104);
+        _colorbody = Color.fromARGB(255, 53, 53, 53);
+        _colorbodytext = Color.fromARGB(255, 204, 204, 204);
+      } else if (stat == "night") {
+        stat = "day";
+        _colorAppbar = Color.fromARGB(255, 255, 138, 138);
+        _colorbody = Color.fromARGB(255, 255, 255, 255);
+        _colorbodytext = Color.fromARGB(255, 31, 31, 31);
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Center(child: Text('ID cart')),
-        backgroundColor: const Color.fromARGB(255, 104, 104, 104),
+        title: const Center(
+            child: Text(
+          'ID cart',
+        )),
+        backgroundColor: _colorAppbar,
       ),
-      body: const Body(),
-      backgroundColor: const Color.fromARGB(255, 53, 53, 53),
+      body: Body(_colorbodytext),
+      backgroundColor: _colorbody,
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: Icon(Icons.nightlight),
+        onPressed: () {
+          grow();
+        },
+        child: const Icon(Icons.nightlight),
       ),
     );
   }
 }
 
 class Body extends StatelessWidget {
-  const Body({super.key});
+  late Color _colorbodytext;
+
+  // ignore: no_leading_underscores_for_local_identifiers
+  Body(Color _colorbodytext, {super.key}) {
+    this._colorbodytext = _colorbodytext;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -59,9 +95,9 @@ class Body extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             // ignore: prefer_const_literals_to_create_immutables
             children: <Widget>[
-              const Text(
+              Text(
                 'NAME',
-                style: TextStyle(color: Color.fromARGB(255, 204, 204, 204)),
+                style: TextStyle(color: _colorbodytext),
               ),
               const SizedBox(
                 height: 10,
@@ -77,10 +113,10 @@ class Body extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
-              const Text(
+              Text(
                 'CURRENT NINJA LEVEL',
                 style: TextStyle(
-                  color: Color.fromARGB(255, 204, 204, 204),
+                  color: _colorbodytext,
                 ),
               ),
               const SizedBox(
@@ -100,17 +136,17 @@ class Body extends StatelessWidget {
               Row(
                 // ignore: prefer_const_literals_to_create_immutables
                 children: [
-                  const Icon(
+                  Icon(
                     Icons.mail,
-                    color: Colors.white,
+                    color: _colorbodytext,
                     size: 15,
                   ),
                   const SizedBox(
                     width: 10,
                   ),
-                  const Text(
+                  Text(
                     "chun-li@ninjaTeam.com",
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(color: _colorbodytext),
                   )
                 ],
               )
