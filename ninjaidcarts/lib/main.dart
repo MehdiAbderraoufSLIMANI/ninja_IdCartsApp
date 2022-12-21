@@ -25,6 +25,29 @@ class Home extends StatelessWidget {
         title: const Center(child: Text('ID cart')),
         backgroundColor: const Color.fromARGB(255, 104, 104, 104),
       ),
+      body: const Body(),
+      backgroundColor: const Color.fromARGB(255, 53, 53, 53),
+    );
+  }
+}
+
+class Body extends StatelessWidget {
+  const Body({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Column(
+        children: [
+          Container(
+            margin: const EdgeInsets.all(100),
+            child: const Icon(
+              Icons.photo,
+              size: 100,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
