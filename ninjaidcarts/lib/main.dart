@@ -41,9 +41,11 @@ class Body extends StatelessWidget {
         children: [
           Container(
             margin: const EdgeInsets.all(100),
-            child: const Icon(
-              Icons.photo,
-              size: 100,
+            child: const CircleAvatar(
+              backgroundImage: AssetImage(
+                "assets/1.jpg",
+              ),
+              radius: 50,
             ),
           ),
         ],
