@@ -36,10 +36,11 @@ class Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        children: [
-          Container(
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Center(
+          child: Container(
             margin: const EdgeInsets.all(100),
             child: const CircleAvatar(
               backgroundImage: AssetImage(
@@ -48,8 +49,70 @@ class Body extends StatelessWidget {
               radius: 50,
             ),
           ),
-        ],
-      ),
+        ),
+        Container(
+          margin: const EdgeInsets.fromLTRB(25, 0, 0, 0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            // ignore: prefer_const_literals_to_create_immutables
+            children: <Widget>[
+              const Text(
+                'NAME',
+                style: TextStyle(color: Color.fromARGB(255, 204, 204, 204)),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              const Text(
+                "Chun-Li",
+                style: TextStyle(
+                  color: Colors.amber,
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              const Text(
+                'Current ninja level',
+                style: TextStyle(color: Color.fromARGB(255, 204, 204, 204)),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              const Text(
+                "8",
+                style: TextStyle(
+                  color: Colors.amber,
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Row(
+                // ignore: prefer_const_literals_to_create_immutables
+                children: [
+                  const Icon(
+                    Icons.mail,
+                    color: Colors.white,
+                    size: 15,
+                  ),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  const Text(
+                    "chun-li@ninjaTeam.com",
+                    style: TextStyle(color: Colors.white),
+                  )
+                ],
+              )
+            ],
+          ),
+        ),
+      ],
     );
   }
 }
